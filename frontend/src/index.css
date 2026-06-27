@@ -2033,3 +2033,9 @@ main {
 .to-teal-700 { --tw-gradient-to: #0f766e; }
 .from-fuchsia-600 { --tw-gradient-from: #c026d3; }
 .to-purple-700 { --tw-gradient-to: #7e22ce; }
+
+@media (max-width: 768px) {
+  .checkout-item {
+    align-items: stretch;
+  }
+}
