@@ -11,6 +11,7 @@ interface NavbarProps {
 export function Navbar({ onSearch }: NavbarProps) {
   const [query, setQuery] = useState('');
   const [showResults, setShowResults] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const { itemCount } = useCart();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
@@ -31,6 +32,14 @@ export function Navbar({ onSearch }: NavbarProps) {
     };
     document.addEventListener('mousedown', handleClick);
     return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) setMenuOpen(false);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -63,11 +72,27 @@ export function Navbar({ onSearch }: NavbarProps) {
           <span className="navbar-title">PixelGate</span>
         </div>
 
-        <div className="navbar-links">
-          <a href="/" className="nav-link active">Browse</a>
-          <a href="/" className="nav-link">New Releases</a>
-          <a href="/" className="nav-link">Deals</a>
-          <a href="/" className="nav-link">Library</a>
+        <button className="btn-hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            {menuOpen ? (
+              <>
+                <path d="M6 18L18 6M6 6l12 12" />
+              </>
+            ) : (
+              <>
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </>
+            )}
+          </svg>
+        </button>
+
+        {menuOpen && <div className="mobile-menu-backdrop" onClick={() => setMenuOpen(false)} />}
+
+        <div className={`navbar-links${menuOpen ? ' navbar-links--open' : ''}`}>
+          <a href="/" className="nav-link active" onClick={() => setMenuOpen(false)}>Browse</a>
+          <a href="/" className="nav-link" onClick={() => setMenuOpen(false)}>New Releases</a>
+          <a href="/" className="nav-link" onClick={() => setMenuOpen(false)}>Deals</a>
+          <a href="/" className="nav-link" onClick={() => setMenuOpen(false)}>Library</a>
         </div>
 
         <div className="navbar-search" ref={searchRef}>
