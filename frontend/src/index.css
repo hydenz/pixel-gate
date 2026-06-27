@@ -1249,6 +1249,10 @@ main {
     grid-template-columns: 1fr;
   }
 
+  .checkout-page {
+    padding: 80px 20px 40px;
+  }
+
   .game-page {
     padding: 100px 16px 40px;
   }
@@ -1335,17 +1339,46 @@ main {
   }
 
   .checkout-item {
-    flex-wrap: wrap;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 4px 12px;
+    padding: 12px;
+    align-items: start;
   }
 
   .checkout-item-cover {
     width: 48px;
     height: 48px;
+    grid-row: 1 / -1;
+  }
+
+  .checkout-item-info {
+    grid-column: 2;
+    grid-row: 1 / -1;
+  }
+
+  .checkout-item-info h3 {
+    font-size: 0.875rem;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 
   .checkout-item-price {
+    grid-column: 3;
+    grid-row: 1;
     font-size: 0.875rem;
+    justify-self: end;
+  }
+
+  .checkout-item-remove {
+    grid-column: 3;
+    grid-row: 2;
+    justify-self: end;
+    width: 32px;
+    height: 32px;
   }
 
   .modal-content {
@@ -1398,12 +1431,68 @@ main {
     max-height: 50vh;
   }
 
+  .checkout-page {
+    padding: 80px 12px 40px;
+  }
+
+  .checkout-title {
+    font-size: 1.375rem;
+    margin-bottom: 20px;
+  }
+
+  .checkout-layout {
+    gap: 24px;
+  }
+
+  .checkout-total {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .checkout-total-price {
+    font-size: 1.125rem;
+  }
+
+  .checkout-items h2,
+  .checkout-form h2 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
   .checkout-form {
     padding: 16px;
   }
 
+  .form-group input {
+    font-size: 16px;
+    height: 48px;
+  }
+
+  .empty-checkout {
+    padding: 48px 0;
+  }
+
+  .empty-checkout p {
+    font-size: 1rem;
+  }
+
+  .payment-success {
+    padding: 48px 0;
+  }
+
   .payment-success h1 {
+    font-size: 1.375rem;
+  }
+
+  .payment-success p {
+    font-size: 0.9375rem;
+  }
+
+  .success-icon {
+    width: 56px;
+    height: 56px;
     font-size: 1.5rem;
+    margin-bottom: 16px;
   }
 }
 
