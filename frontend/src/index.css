@@ -1253,6 +1253,60 @@ main {
     padding: 80px 20px 40px;
   }
 
+  .checkout-container {
+    overflow-x: hidden;
+  }
+
+  .checkout-item {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 4px 12px;
+    padding: 12px;
+    align-items: start;
+  }
+
+  .checkout-item-cover {
+    width: 48px;
+    height: 48px;
+    grid-row: 1 / -1;
+  }
+
+  .checkout-item-info {
+    min-width: 0;
+    grid-column: 2;
+    grid-row: 1 / -1;
+  }
+
+  .checkout-item-info h3 {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.875rem;
+  }
+
+  .checkout-item-price {
+    grid-column: 3;
+    grid-row: 1;
+    font-size: 0.875rem;
+    justify-self: end;
+    line-height: 1.4;
+  }
+
+  .checkout-item-remove {
+    grid-column: 3;
+    grid-row: 2;
+    justify-self: end;
+    width: 32px;
+    height: 32px;
+  }
+
+  .checkout-total {
+    padding: 12px;
+  }
+
   .game-page {
     padding: 100px 16px 40px;
   }
@@ -1336,49 +1390,6 @@ main {
 
   .game-page-buy-buttons {
     flex-direction: column;
-  }
-
-  .checkout-item {
-    display: grid;
-    grid-template-columns: 48px 1fr auto;
-    grid-template-rows: auto auto;
-    gap: 4px 12px;
-    padding: 12px;
-    align-items: start;
-  }
-
-  .checkout-item-cover {
-    width: 48px;
-    height: 48px;
-    grid-row: 1 / -1;
-  }
-
-  .checkout-item-info {
-    grid-column: 2;
-    grid-row: 1 / -1;
-  }
-
-  .checkout-item-info h3 {
-    font-size: 0.875rem;
-    white-space: normal;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-
-  .checkout-item-price {
-    grid-column: 3;
-    grid-row: 1;
-    font-size: 0.875rem;
-    justify-self: end;
-  }
-
-  .checkout-item-remove {
-    grid-column: 3;
-    grid-row: 2;
-    justify-self: end;
-    width: 32px;
-    height: 32px;
   }
 
   .modal-content {
