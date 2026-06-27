@@ -1,0 +1,6 @@
+@game_store_HostAddress = http://localhost:5162
+
+GET {{game_store_HostAddress}}/games/
+Accept: application/json
+
+###

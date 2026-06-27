@@ -1,0 +1,16 @@
+# .NET
+backend/bin/
+backend/obj/
+backend/net10.0/
+backend/test-results/
+backend/*.db
+backend/*.db-*
+backend/*.user
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# OS
+.DS_Store
+Thumbs.db
