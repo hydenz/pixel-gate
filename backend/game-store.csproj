@@ -5,7 +5,19 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>game_store</RootNamespace>
+
+    <SpaRoot>../frontend/</SpaRoot>
+    <SpaDist>$(SpaRoot)dist/</SpaDist>
   </PropertyGroup>
+
+  <Target Name="BuildFrontend" BeforeTargets="Publish">
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm ci" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npx vite build" />
+    <ItemGroup>
+      <DistFiles Include="$(SpaDist)**" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DistFiles)" DestinationFolder="$(PublishDir)wwwroot/%(RecursiveDir)" />
+  </Target>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.9" />

@@ -1,21 +1,8 @@
-
 using game_store.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
-
-var allowedOrigin = Environment.GetEnvironmentVariable("CORS_ORIGIN") ?? "http://localhost:5173";
-
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(policy =>
-    {
-        policy.WithOrigins(allowedOrigin)
-              .AllowAnyHeader()
-              .AllowAnyMethod();
-    });
-});
 
 builder.Services
     .AddControllers()
@@ -47,8 +34,10 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseCors();
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 app.MapControllers();
+app.MapFallbackToFile("index.html");
 
 app.Run();

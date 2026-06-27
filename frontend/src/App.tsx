@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { CartProvider } from './context/CartContext';
 import { Navbar } from './components/Navbar';
@@ -20,7 +20,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <CartProvider>
-        <HashRouter>
+        <BrowserRouter>
 
           <div className="app">
             <Navbar />
@@ -38,7 +38,7 @@ function App() {
               </div>
             </footer>
           </div>
-        </HashRouter>
+        </BrowserRouter>
       </CartProvider>
     </QueryClientProvider>
   );
