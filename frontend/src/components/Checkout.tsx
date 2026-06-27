@@ -153,27 +153,31 @@ export function Checkout() {
               <h2>Cart Items ({items.length})</h2>
               {items.map((item) => (
                 <div key={`${item.game.id}-${item.platform}`} className="checkout-item">
-                  <div className="checkout-item-cover">
-                    {item.game.coverImageUrl ? (
-                      <img src={item.game.coverImageUrl} alt={item.game.name} />
-                    ) : (
-                      <div className="checkout-item-placeholder">🎮</div>
-                    )}
+                  <div className="checkout-item-header">
+                    <div className="checkout-item-cover">
+                      {item.game.coverImageUrl ? (
+                        <img src={item.game.coverImageUrl} alt={item.game.name} />
+                      ) : (
+                        <div className="checkout-item-placeholder">🎮</div>
+                      )}
+                    </div>
+                    <div className="checkout-item-info">
+                      <h3>{item.game.name}</h3>
+                      <p className="checkout-item-company">{item.game.companyName}</p>
+                      <span
+                        className="checkout-platform-tag"
+                        style={{ backgroundColor: platformColors[item.platform] + '22', color: platformColors[item.platform] }}
+                      >
+                        {platformIcons[item.platform]} {item.platform}
+                      </span>
+                    </div>
                   </div>
-                  <div className="checkout-item-info">
-                    <h3>{item.game.name}</h3>
-                    <p className="checkout-item-company">{item.game.companyName}</p>
-                    <span
-                      className="checkout-platform-tag"
-                      style={{ backgroundColor: platformColors[item.platform] + '22', color: platformColors[item.platform] }}
-                    >
-                      {platformIcons[item.platform]} {item.platform}
-                    </span>
+                  <div className="checkout-item-footer">
+                    <div className="checkout-item-price">${item.game.price.toFixed(2)}</div>
+                    <button className="checkout-item-remove" onClick={() => removeItem(item.game.id, item.platform)}>
+                      ✕
+                    </button>
                   </div>
-                  <div className="checkout-item-price">${item.game.price.toFixed(2)}</div>
-                  <button className="checkout-item-remove" onClick={() => removeItem(item.game.id, item.platform)}>
-                    ✕
-                  </button>
                 </div>
               ))}
 
