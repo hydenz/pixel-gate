@@ -1,8 +1,8 @@
 
-using game_store.Dtos;
+using pixelgate.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
-namespace game_store.Controllers;
+namespace pixelgate.Controllers;
 
 [ApiController]
 [Route("[controller]")]

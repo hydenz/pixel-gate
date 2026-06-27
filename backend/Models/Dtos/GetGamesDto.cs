@@ -1,6 +1,6 @@
-using game_store.Models;
+using pixelgate.Models;
 
-namespace game_store.Dtos;
+namespace pixelgate.Dtos;
 
 public record GetGamesDto(
     int Id,

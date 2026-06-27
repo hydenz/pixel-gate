@@ -14,4 +14,4 @@ WORKDIR /app
 COPY --from=frontend-build /app/dist /app/wwwroot
 COPY --from=backend-build /app/publish .
 EXPOSE 8080
-CMD dotnet game-store.dll
+CMD dotnet pixelgate.dll

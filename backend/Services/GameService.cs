@@ -1,12 +1,12 @@
 
-using game_store.Data;
-using game_store.Models;
-using game_store.Dtos;
+using pixelgate.Data;
+using pixelgate.Models;
+using pixelgate.Dtos;
 using Microsoft.EntityFrameworkCore;
 
-public class GameService(GameStoreDbContext context) : IGameService
+public class GameService(PixelGateDbContext context) : IGameService
 {
-    private readonly GameStoreDbContext _context = context;
+    private readonly PixelGateDbContext _context = context;
     public async Task<List<GetGamesDto>> GetAllGames()
     {
         return await _context.Games

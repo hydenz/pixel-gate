@@ -1,4 +1,4 @@
-namespace game_store.Models;
+namespace pixelgate.Models;
 
 public class Genre
 {

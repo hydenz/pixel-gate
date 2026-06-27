@@ -2,22 +2,25 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using game_store.Data;
+using pixelgate.Data;
 
 #nullable disable
 
-namespace game_store.Migrations
+namespace pixelgate.Migrations
 {
-    [DbContext(typeof(GameStoreDbContext))]
-    partial class GameStoreDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(PixelGateDbContext))]
+    [Migration("20260627152345_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.9");
 
-            modelBuilder.Entity("game_store.Models.Company", b =>
+            modelBuilder.Entity("pixelgate.Models.Company", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -64,7 +67,7 @@ namespace game_store.Migrations
                         });
                 });
 
-            modelBuilder.Entity("game_store.Models.Game", b =>
+            modelBuilder.Entity("pixelgate.Models.Game", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -156,8 +159,8 @@ namespace game_store.Migrations
                         new
                         {
                             Id = 4,
-                            CompanyId = 4,
                             CardImageUrl = "https://res.cloudinary.com/dcbkiur84/image/upload/v1782567890/apps.58691.13670972585585116.3e5032b0-0174-4e7d-b3ed-55f9306df6f1_nvylrq.jpg",
+                            CompanyId = 4,
                             CoverImageUrl = "https://res.cloudinary.com/dcbkiur84/image/upload/v1782567898/Cuphead_capa_sqc05m.png",
                             Description = "A run-and-gun indie game with hand-drawn 1930s cartoon art style.",
                             GenreId = 2,
@@ -209,7 +212,7 @@ namespace game_store.Migrations
                         });
                 });
 
-            modelBuilder.Entity("game_store.Models.Genre", b =>
+            modelBuilder.Entity("pixelgate.Models.Genre", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -241,15 +244,15 @@ namespace game_store.Migrations
                         });
                 });
 
-            modelBuilder.Entity("game_store.Models.Game", b =>
+            modelBuilder.Entity("pixelgate.Models.Game", b =>
                 {
-                    b.HasOne("game_store.Models.Company", "Company")
+                    b.HasOne("pixelgate.Models.Company", "Company")
                         .WithMany()
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("game_store.Models.Genre", "Genre")
+                    b.HasOne("pixelgate.Models.Genre", "Genre")
                         .WithMany()
                         .HasForeignKey("GenreId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -1,0 +1,6 @@
+@pixelgate_HostAddress = http://localhost:5162
+
+GET {{pixelgate_HostAddress}}/games/
+Accept: application/json
+
+###

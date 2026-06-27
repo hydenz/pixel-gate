@@ -1,4 +1,4 @@
-using game_store.Data;
+using pixelgate.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -22,16 +22,16 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<IGameService, GameService>();
 
-builder.Services.AddDbContext<GameStoreDbContext>(options =>
+builder.Services.AddDbContext<PixelGateDbContext>(options =>
 {
-    options.UseSqlite("Data Source=gamestore.db");
+    options.UseSqlite("Data Source=pixelgate.db");
 });
 
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
-    var db = scope.ServiceProvider.GetRequiredService<GameStoreDbContext>();
+    var db = scope.ServiceProvider.GetRequiredService<PixelGateDbContext>();
     db.Database.Migrate();
 }
 

@@ -1,7 +1,7 @@
 
 
-using game_store.Models;
-using game_store.Dtos;
+using pixelgate.Models;
+using pixelgate.Dtos;
 
 public interface IGameService
 {

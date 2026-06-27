@@ -1,10 +1,10 @@
 using System.Text.Json;
-using game_store.Models;
+using pixelgate.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace game_store.Data;
+namespace pixelgate.Data;
 
-public class GameStoreDbContext(DbContextOptions<GameStoreDbContext> options) : DbContext(options)
+public class PixelGateDbContext(DbContextOptions<PixelGateDbContext> options) : DbContext(options)
 {
     public DbSet<Game> Games => Set<Game>();
 
