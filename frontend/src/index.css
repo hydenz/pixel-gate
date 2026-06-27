@@ -1245,11 +1245,6 @@ main {
     align-items: flex-start;
   }
 
-  .checkout-layout {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
   .checkout-page {
     padding: 80px 20px 40px;
   }
@@ -1467,7 +1462,6 @@ main {
   }
 
   .checkout-layout {
-    grid-template-columns: 1fr;
     gap: 24px;
   }
 
@@ -1708,10 +1702,18 @@ main {
 }
 
 .checkout-layout {
-  display: grid;
-  grid-template-columns: 1fr 380px;
+  display: flex;
+  flex-direction: column;
   gap: 32px;
-  align-items: start;
+}
+
+@media (min-width: 769px) {
+  .checkout-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 32px;
+    align-items: start;
+  }
 }
 
 .checkout-items h2,
